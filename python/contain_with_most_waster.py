@@ -23,15 +23,14 @@ class Solution:
         left = 0
         right = len(height) - 1
 
-        maxArea = min(height[left], height[right]) * (right - left)
+        maxArea = 0 
         while left < right:
+            area = min(height[left], height[right]) * (right - left)
+            maxArea = max(area, maxArea)
             if height[left] <= height[right]:
                 left += 1
             else:
                 right -= 1
-            area = min(height[left], height[right]) * (right - left)
-            if area > maxArea:
-                maxArea = area
 
         return maxArea
 
